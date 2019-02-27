@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% include "navbar.html" %}
+<div class="container mt-5 text-right">
+	<button class="btn btn-outline-success my-2 my-sm-0" onclick="location.href='/'">Go to search</button>
+</div>
+<div class="container mt-3">
+	<div class="card bg-light">
+		<div class="card-body mx-auto" style="max-width: 400px;">
+			<h4 class="card-title mt-3 text-center"> Name: {{ country.name }} </h4>
+			<table class="table table-striped table-borderless ">
+			  <thead>
+				<tr>
+				  <th scope="col">#</th>
+				  <th scope="col">Heading</th>
+				  <th scope="col">Information</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <th scope="row">1</th>
+				  <td>Region</td>
+				  <td>{{ country.region }}</td>
+				</tr>
+				<tr>
+				  <th scope="row">2</th>
+				  <td>Capital</td>
+				  <td>{{ country.capital }}</td>
+				</tr>
+				<tr>
+				  <th scope="row">3</th>
+				  <td>Code</td>
+				  <td>{{ country.code }}</td>
+				<tr>
+				  <th scope="row">4</th>
+				  <td>Code2</td>
+				  <td>{{ country.code2 }}</td>
+				<tr>
+				  <th scope="row">5</th>
+				  <td>Continent</td>
+				  <td>{{ country.continent }}</td>
+				 <tr>
+				  <th scope="row">6</th>
+				  <td>Gnp</td>
+				  <td>{{ country.gnp }}</td>
+				 <tr>
+				  <th scope="row">7</th>
+				  <td>Gnpold</td>
+				  <td>{{ country.gnpold }}</td>
+				 <tr>
+				  <th scope="row">8</th>
+				  <td>Govenment form</td>
+				  <td>{{ country.governmentform }}</td>
+				 <tr>
+				  <th scope="row">9</th>
+				  <td>Head of the state</td>
+				  <td>{{ headofstate }}</td>
+				<tr>
+				  <th scope="row">10</th>
+				  <td>Independence Year</td>
+				  <td>{{ country.indepyear }}</td>
+				<tr>
+				  <th scope="row">11</th>
+				  <td>Life Expectancy</td>
+				  <td>{{ country.lifeexpectancy }}</td>
+				<tr>
+				  <th scope="row">12</th>
+				  <td>Population</td>
+				  <td>{{ country.population }}</td>
+				 <tr>
+				  <th scope="row">13</th>
+				  <td>Local name</td>
+				  <td>{{ country.localname }}</td>
+				 <tr>
+				  <th scope="row">14</th>
+				  <td>Surface area</td>
+				  <td>{{ country.surfacearea }}</td>
+				</tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

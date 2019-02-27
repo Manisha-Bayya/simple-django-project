@@ -1,0 +1,59 @@
+<h4> Countries </h4>
+{% if not countries %}
+    <p class="text-center"> no countries matched! </p>
+{% endif %}
+<div class="row">
+    {% for i in countries %}
+        <div class="col-sm-4 mb-5">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"> {{ i.name }} </h5>
+                <p class="card-text">Local name: {{ i.localname }}
+                <br> Surface area: {{ i.surfacearea }}
+                </p>
+                <a href="/country/{{ i.name }}" class="btn btn-outline-success">Know more</a>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<h4> Cities </h4>
+{% if not cities %}
+    <p class="text-center"> no cities matched! </p>
+{% endif %}
+<div class="row">
+    {% for i in cities %}
+        <div class="col-sm-4 mb-5">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"> {{ i.name }} </h5>
+                <p class="card-text">Country code: {{ i.countrycode_id }}
+                <br> District: {{ i.district }}
+                <br> Population: {{ i.population }}
+                </p>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<h4> Languages </h4>
+{% if not languages %}
+    <p class="text-center"> No languages matched! </p>
+{% endif %}
+<div class="row">
+    {% for i in languages %}
+        <div class="col-sm-4 mb-5">
+         <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"> {{ i.language }} </h5>
+            <p class="card-text">Country code: {{ i.countrycode_id }}
+            <br> Percentage: {{ i.percentage }}
+            <br> IsOfficial: {{ i.isofficial }}
+            </p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

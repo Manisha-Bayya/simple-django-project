@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> login page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">PanOrbit</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Login</h4>
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+			 </div>
+			<input name="" class="form-control email" placeholder="Email address" type="email">
+		</div> <!-- form-group// -->
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+			</div>
+			<input class="form-control otp" placeholder="Enter OTP" type="password">
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="send_otp"> Send OTP  </button>
+		</div> <!-- form-group// -->
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="login_submit"> Login  </button>
+		</div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}
