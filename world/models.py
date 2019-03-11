@@ -9,7 +9,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager, UserManager
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -59,6 +59,8 @@ class Countrylanguage(models.Model):
         db_table = 'countrylanguage'
         unique_together = (('countrycode', 'language'),)
 
+    def __unicode__(self):
+	return ("country-code: %s language: %s") %(self.countrycode.name, self.language)
 
 class DjangoMigrations(models.Model):
     app = models.CharField(max_length=255)
@@ -69,6 +71,31 @@ class DjangoMigrations(models.Model):
         managed = False
         db_table = 'django_migrations'
 
+class MyCustomUserManager(BaseUserManager):
+    def create_user(self, email_id, first_name, last_name, password=None):
+        """
+        Creates and saves a User with the given email and password.
+        """
+        if not email_id:
+            raise ValueError('Users must have an email address')
+
+        user = self.model(
+            email=MyCustomUserManager.normalize_email(email_id),
+            first_name=first_name,
+            last_name=last_name,
+        )
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, password, first_name, last_name=None):
+        u = self.create_user(email_id=email, password=password, first_name=first_name, last_name=last_name)
+        u.is_superuser = True
+        u.is_staff = True
+        u.save(using=self._db)
+        return u
+
 class User(AbstractUser):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, blank=True, null=True)
@@ -77,5 +104,9 @@ class User(AbstractUser):
     email = models.CharField(max_length=100, primary_key=True)
     phone_number = PhoneNumberField(blank=True)
 
+    objects = MyCustomUserManager()
+
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name"]
+

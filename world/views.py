@@ -138,3 +138,4 @@ def get_country_details(request, country_name):
     result = {"country": country}
     
     return render(request, "country.html", result)
+
