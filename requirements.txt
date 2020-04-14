@@ -32,3 +32,5 @@ six==1.11.0
 urllib3==1.24.2
 Whoosh==2.7.4
 xlrd==1.2.0
+libmysqlclient-dev
+python-dev
