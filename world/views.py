@@ -40,7 +40,7 @@ def search(request):
 def signup(request):
     return render(request, "signup.html")
 
-@csrf_exempt
+@csrf_exempt                           #@csrf_exempt is use to bypass the csrf authintication it is use for testing purpose.
 def signup_validate(request):
     body = json.loads(request.body)
     email = body.get("email", "")
