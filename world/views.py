@@ -85,8 +85,13 @@ def signup_validate(request):
 def c_login(request):
     return render(request, "login.html")
 
+
 @csrf_exempt
 def send_otp(request):
+    '''
+    When you will click on 'Send Otp" button on front end then ajax call will be hit and
+    that lead to call this function
+    '''
     body = json.loads(request.body)
     email = body.get("email", "")
 
