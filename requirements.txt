@@ -18,7 +18,7 @@ mysqlclient==1.4.2.post1
 oauthlib==2.1.0
 openpyxl==2.5.12
 phonenumbers==8.10.6
-protobuf==3.6.0
+protobuf==3.15.0
 pycparser==2.19
 PyJWT==1.7.1
 PyMySQL==0.9.3
