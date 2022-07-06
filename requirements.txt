@@ -13,7 +13,7 @@ et-xmlfile==1.0.1
 future==0.17.1
 idna==2.8
 jdcal==1.4
-lxml==4.2.5
+lxml==4.9.1
 mysqlclient==1.4.2.post1
 oauthlib==2.1.0
 openpyxl==2.5.12
