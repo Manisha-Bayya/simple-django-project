@@ -2,43 +2,49 @@ version: '3.8'
 
 networks:
   network1:
+    # Сеть между контейнерами
     name: network1
 
 services:
   db:
+    # Образ mysql
     image: mysql:8.0.15
+
+    # Автоматический перезапуск
     restart: always
+
     environment:
+      # Переменные окружения в mysql
       MYSQL_DATABASE: 'world'
-      # So you don't have to use root, but you can if you like
       MYSQL_USER: 'root'
-      # You can use whatever password you like
       MYSQL_PASSWORD: 'xxxx'
-      # Password for root access
       MYSQL_ROOT_PASSWORD: 'xxxx'
+
     ports:
-      # <Port exposed> : <MySQL Port running inside container>
+      # Cвязывание порта контейнера с портом хоста
       - '3306:3306'
+
     expose:
-      # Opens port 3306 on the container
+      # Порт внутри контейнера видимый для других контейнеров в той же сети
       - '3306'
+
     volumes:
-#      - /home/usr1/django/db/:/var/lib/mysql/
+      # Монтирование тома в контейнере
       - /home/usr1/Github/simple-django-project/world.sql:/mysql-files/world.sql
-#      - /home/usr1/simple-django-project/world.sql:/mysql-files
-#      - /home/usr1/django/world:/var/lib/mysql
-#    command: --init-file /simple-django-project/world.sql
-# source /docker-entrypoint-initdb.d/world.sql  
+
   django:
     image: django:v1
+    # Автоматический перезапуск
     restart: always
-#    command: sleep 1d
+
     ports:
-      # <Port exposed> : <MySQL Port running inside container>
+      # Cвязывание порта контейнера с портом хоста
       - '8001:8001'
+
     expose:
-      # Opens port 3306 on the container
+      # Порт внутри контейнера видимый в этой сети
       - '8001'
+      
     depends_on:
-      # Поднимется после контейнера db
+      # Включение после контейнера db
       - db
