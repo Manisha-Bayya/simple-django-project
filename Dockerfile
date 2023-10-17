@@ -22,12 +22,10 @@ WORKDIR /simple-django-project
 RUN pip install --upgrade setuptools
 RUN pip install --upgrade pip
 
-#  Изменение источников пакетов
-#RUN sed -i -e 's/deb.debian.org/archive.debian.org/g' -e 's|security.debian.org|archive.debian.org/|g' -e '/stretch-updates/d' /etc/apt/sources.list
 
 # Установка всех зависимостей из requirements.txt
 RUN pip install -r requirements.txt
 
-#RUN apt-get update && apt-get install apt-file -y && apt-file update && apt-get install vim -y
+
 CMD ["sleep", "infinity"]
 

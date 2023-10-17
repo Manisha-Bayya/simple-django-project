@@ -1,7 +1,7 @@
 # simple-django-project 
 ## Installation
 
-# Prerequisites
+## Prerequisites
 Install Docker.  Follow the steps form the below reference document based on your Operating System. Reference: https://docs.docker.com/engine/install/
 
 1. Clone git repository
@@ -11,7 +11,7 @@ git clone https://github.com/SergeiPetkov/simple-django-project.git
 docker build -t django:v1 .
 
 3. Change compose.yaml
-- /home/.../simple-django-project/world.sql:/mysql-files/world.sql
+"- /home/.../simple-django-project/world.sql:/mysql-files/world.sql"
 
 4. Deploy with docker compose
 docker compose up -d
